@@ -13,8 +13,9 @@ class CreateSkpdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('skpds', function (Blueprint $table) {
+        Schema::create('opd', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_opd');
             $table->timestamps();
         });
     }
