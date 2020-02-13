@@ -13,8 +13,16 @@ class CreateDetailSuratsTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_surats', function (Blueprint $table) {
+        Schema::create('detail_surat', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('surat_id')->unsigned();
+            $table->foreign('surat_id')
+                  ->references('id')->on('surat')
+                  ->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
