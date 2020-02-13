@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//surat
+Route::group(["prefix"=>"surat/"], function(){
+Route::get('task', 'SuratController@task');
+Route::get('archive', 'SuratController@archive');
+});
+
+Route::group(["prefix"=>"user/"], function(){
+Route::get('information', 'SuratController@information');
+});

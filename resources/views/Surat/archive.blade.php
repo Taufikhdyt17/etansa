@@ -11,14 +11,14 @@
     <div class="card-header">
         <div class="row">
             <div class="col-sm-6">
-                <h4 class="text-gray-800">Task - Surat Masuk (Kategori : Biasa)</h4>
+                <h4 class="text-gray-800">Archive</h4>
             </div>
             <div class="col-sm-6" align="right">
-                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#newFile">
+                <a href="" class="btn btn-success" data-toggle="modal" data-target="#cetak">
                   <span class="icon text-white-50">
-                    <i class="fas fa-file"></i>
+                    <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span class="text">Add New File</span>
+                  <span class="text">Download</span>
                 </a>
             </div>
         </div>

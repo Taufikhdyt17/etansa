@@ -24,81 +24,58 @@
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Interface
+  Admin
 </div>
 
-<!-- Nav Item - Pages Collapse Menu -->
+<!-- Role -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-    <i class="fas fa-fw fa-cog"></i>
-    <span>Components</span>
-  </a>
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Components:</h6>
-      <a class="collapse-item" href="buttons.html">Buttons</a>
-      <a class="collapse-item" href="cards.html">Cards</a>
-    </div>
-  </div>
+  <a class="nav-link" href="#">
+    <i class="fas fa-fw fa-user-lock"></i>
+    <span>Role</span></a>
 </li>
 
-<!-- Nav Item - Utilities Collapse Menu -->
+<!-- Manage User -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-    <i class="fas fa-fw fa-wrench"></i>
-    <span>Utilities</span>
-  </a>
-  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Utilities:</h6>
-      <a class="collapse-item" href="utilities-color.html">Colors</a>
-      <a class="collapse-item" href="utilities-border.html">Borders</a>
-      <a class="collapse-item" href="utilities-animation.html">Animations</a>
-      <a class="collapse-item" href="utilities-other.html">Other</a>
-    </div>
-  </div>
+  <a class="nav-link" href="#">
+    <i class="fas fa-fw fa-user-cog"></i>
+    <span>Manage User</span></a>
 </li>
+
+<!-- Pejabat -->
+<li class="nav-item">
+  <a class="nav-link" href="#">
+    <i class="fas fa-fw fa-user-tie"></i>
+    <span>Pejabat</span></a>
+</li>
+
 
 <!-- Divider -->
 <hr class="sidebar-divider">
 
 <!-- Heading -->
 <div class="sidebar-heading">
-  Addons
+  User
 </div>
 
-<!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item active">
-  <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-    <i class="fas fa-fw fa-folder"></i>
-    <span>Pages</span>
-  </a>
-  <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Login Screens:</h6>
-      <a class="collapse-item" href="login.html">Login</a>
-      <a class="collapse-item" href="register.html">Register</a>
-      <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-      <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Other Pages:</h6>
-      <a class="collapse-item" href="404.html">404 Page</a>
-      <a class="collapse-item active" href="blank.html">Blank Page</a>
-    </div>
-  </div>
+<!-- Information -->
+<li class="nav-item">
+  <a class="nav-link" href="{{url('user/information')}}">
+    <i class="fas fa-fw fa-user"></i>
+    <span>Information</span></a>
 </li>
 
-<!-- Nav Item - Charts -->
+<!-- Task -->
 <li class="nav-item">
-  <a class="nav-link" href="charts.html">
-    <i class="fas fa-fw fa-chart-area"></i>
-    <span>Charts</span></a>
+  <a class="nav-link" href="{{url('surat/task')}}">
+    <i class="fas fa-fw fa-tasks"></i>
+    <span>Task</span></a>
 </li>
 
-<!-- Nav Item - Tables -->
+<!-- Archive -->
 <li class="nav-item">
-  <a class="nav-link" href="tables.html">
-    <i class="fas fa-fw fa-table"></i>
-    <span>Tables</span></a>
+  <a class="nav-link" href="{{url('surat/archive')}}">
+    <i class="fas fa-fw fa-archive"></i>
+    <span>Archive</span></a>
 </li>
 
 <!-- Divider -->
