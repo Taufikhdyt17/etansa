@@ -29,6 +29,6 @@ class CreatePejabatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pejabats');
+        Schema::dropIfExists('pejabat');
     }
 }

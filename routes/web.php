@@ -28,3 +28,9 @@ Route::get('archive', 'SuratController@archive');
 Route::group(["prefix"=>"user/"], function(){
 Route::get('information', 'SuratController@information');
 });
+
+Route::group(["prefix"=>"admin/"], function(){
+Route::get('pejabat', 'AdminController@pejabat');
+Route::get('role', 'AdminController@role');
+Route::get('manageuser', 'AdminController@user');
+});

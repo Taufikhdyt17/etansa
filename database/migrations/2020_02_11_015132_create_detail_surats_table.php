@@ -34,6 +34,6 @@ class CreateDetailSuratsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_surats');
+        Schema::dropIfExists('detail_surat');
     }
 }

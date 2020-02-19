@@ -29,21 +29,21 @@
 
 <!-- Role -->
 <li class="nav-item">
-  <a class="nav-link" href="#">
+  <a class="nav-link" href="{{url('admin/role')}}">
     <i class="fas fa-fw fa-user-lock"></i>
     <span>Role</span></a>
 </li>
 
 <!-- Manage User -->
 <li class="nav-item">
-  <a class="nav-link" href="#">
+  <a class="nav-link" href="{{url('admin/manageuser')}}">
     <i class="fas fa-fw fa-user-cog"></i>
     <span>Manage User</span></a>
 </li>
 
 <!-- Pejabat -->
 <li class="nav-item">
-  <a class="nav-link" href="#">
+  <a class="nav-link" href="{{url('admin/pejabat')}}">
     <i class="fas fa-fw fa-user-tie"></i>
     <span>Pejabat</span></a>
 </li>

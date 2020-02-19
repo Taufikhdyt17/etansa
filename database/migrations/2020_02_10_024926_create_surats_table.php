@@ -16,13 +16,14 @@ class CreateSuratsTable extends Migration
         Schema::create('surat', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('pengirim');
-            $table->enum('jenis', array('biasa', 'rahasia'));
+            $table->boolean('jenis_surat');
             $table->string('no_surat');
             $table->string('perihal');
             $table->date('tgl_surat');
             $table->time('jam');
             $table->date('tgl_kirim');
             $table->string('file_surat');
+            $table->boolean('status_surat');
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateSuratsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('surats');
+        Schema::dropIfExists('surat');
     }
 }

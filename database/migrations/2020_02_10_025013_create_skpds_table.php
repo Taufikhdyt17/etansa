@@ -27,6 +27,6 @@ class CreateSkpdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skpds');
+        Schema::dropIfExists('opd');
     }
 }
