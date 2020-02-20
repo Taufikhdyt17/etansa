@@ -16,6 +16,7 @@ class AdminTableSeeder extends Seeder
     {
         $user = User::create([
             'username' => 'Diskominfo',
+            'nip' => '1234567890123456',
             'email' => 'Diskominfo@bontangkota.go.id',
             'password' => Hash::make('12345678'),
             'remember_token' =>Str::random(32),

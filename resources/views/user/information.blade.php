@@ -25,9 +25,9 @@
             </div>
             <div>
                 <div class="card-body">
-                    <h5 class="card-title">Nama</h5>
-                    <p class="card-text">NIP. </p>
-                    <p class="card-text">E-mail</p>
+                    <h5 class="card-title">Nama: </h5>
+                    <p class="card-text">NIP: </p>
+                    <p class="card-text">E-mail: </p>
                     <p class="card-text"><small class="text-muted">
                             Member Since : 19 januari 2020</small></p>
                     <a href="#" class="btn btn-primary mb-3">Edit Profile</a>
