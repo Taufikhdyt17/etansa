@@ -31,7 +31,12 @@ Route::get('information', 'SuratController@information');
 });
 
 Route::group(["prefix"=>"admin/"], function(){
+//------- Pejabat ----------
 Route::get('pejabat', 'AdminController@pejabat');
-Route::get('role', 'AdminController@role');
+//------- Role ----------
+Route::get('role', 'AdminController@role')->name('admin.role');
+Route::post('storerole', 'AdminController@storeRole');
+Route::delete('destroyrole/{id}', 'AdminController@destroyRole')->name('admin.destroyrole');
+//------- Manage User ----------
 Route::get('manageuser', 'AdminController@user');
 });
