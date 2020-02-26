@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //surat
 Route::group(["prefix"=>"surat/"], function(){
 Route::get('task', 'SuratController@task');
+Route::post('storetask', 'SuratController@storeTask');
 Route::get('archive', 'SuratController@archive');
 });
 

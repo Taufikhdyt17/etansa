@@ -56,7 +56,50 @@
             </table>
         </div>
     </div>
+  </div>
 </div>
-</div>
+<div class="modal fade" id="newFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{url('surat/storetask')}}" method="POST" enctype="multipart/form-data">
+      @csrf
+      <div class="modal-body">  
+        <div class="form-group">
+            <input type="text" class="form-control" name="pengirim" placeholder="Pengirim">
+        </div>
+        <div class="form-group">
+            <select name="jenis_surat" class="form-control" >
+                <option value="0">Biasa</option>
+                <option value="1">Rahasia</option>
+            </select>
+        </div> 
+        <div class="form-group">
+            <input type="text" class="form-control" name="no_surat" placeholder="No Surat">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="perihal" placeholder="Perihal">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" name="tgl_surat" placeholder="Tanggal Surat">
+        </div> 
+        <div class="custom-file">
+	      <input type="file" class="custom-file-input" name="file">
+	      <label class="custom-file-label" for="file">Choose file</label>
+	      </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div> 
 @endsection
 
