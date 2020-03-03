@@ -33,7 +33,11 @@ Route::get('information', 'SuratController@information');
 
 Route::group(["prefix"=>"admin/"], function(){
 //------- Pejabat ----------
-Route::get('pejabat', 'AdminController@pejabat');
+Route::get('pejabat', 'AdminController@pejabat')->name('admin.pejabat');
+Route::post('storepejabat', 'AdminController@storePejabat');
+Route::get('editpejabat/{id}', 'AdminController@editPejabat');
+Route::put('updatepejabat/{id}', 'AdminController@updatePejabat');
+Route::delete('destroypejabat/{id}', 'AdminController@destroyPejabat');
 //------- Role ----------
 Route::get('role', 'AdminController@role')->name('admin.role');
 Route::post('storerole', 'AdminController@storeRole');

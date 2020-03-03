@@ -17,7 +17,7 @@
     <div class="card-body border-bottom-primary">
         <div class="col-lg-12">
         	
-            <table class="table table-striped table-bordered datatable" cellspacing="0" style="width:100%">
+            <table class="table table-striped table-bordered datatable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col" style="text-align: center;">No.</th>
@@ -29,20 +29,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
+                @php 
+                $no = 1;
+                @endphp
+                   @forelse($user as $data)
                     <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>name</td>
-                        <td>nip</td>
-                        <td>afsa</td>
-                        <td>
-                            dasf
-                            </td>
+                        <th scope="row" style="text-align: center;">{{$no++}}</th>
+                        <td>{{$data->username}}</td>
+                        <td>{{$data->nip}}</td>
+                        <td>{{$data->email}}</td>
+                        @foreach($data->roles as $roles)
+                        <td>{{$roles->name}}</td>
+                        @endforeach
                         <td>
                             <a href="#" class="badge badge-pill badge-success">Edit</a>
                             <a href="#" class="badge badge-pill badge-danger" onclick="return confirm('Yakin ?');">Delete</a>
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+						<td colspan="6" align="center">Data Tidak Ada</td>
+					</tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

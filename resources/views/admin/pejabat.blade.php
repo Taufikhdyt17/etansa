@@ -37,20 +37,64 @@
                     </tr>
                 </thead>
                 <tbody>
+                @php 
+                $no = 1;
+                @endphp
+                @forelse($pejabat as $data)
                     <tr>
-                        <th scope="row" style="text-align: center;">1</th>
-                        <td>gdfgr</td>
-                        <td>drgd</td>
-                        <td>ljilj</td>
+                        <th scope="row" style="text-align: center;">{{$no++}}</th>
+                        <td>{{$data->nama_pejabat}}</td>
+                        <td>{{$data->nip}}</td>
+                        <td>{{$data->jabatan}}</td>
                         <td>
-                            <a href="#" class="badge badge-pill badge-success">Edit</a>
-                            <a href="#" class="badge badge-pill badge-danger" onclick="return confirm('Yakin ?');">Delete</a>
+                            <a href="{{url('admin/editpejabat/'.$data->id)}}" class="badge badge-pill badge-success">Edit</a>
+                        <form action="{{ url('admin/destroypejabat/'.$data->id) }}" method="POST">
+                              @csrf
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button class="badge badge-pill badge-danger">delete</button>
+                        </form>
                         </td>
                     </tr>
+                @empty
+                <tr>
+                <td colspan="4" align="center">Data Tidak Ada</td>
+                </tr>
+                @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 </div>
+
+<div class="modal fade" id="pejabat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Pejabate</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{url('admin/storepejabat')}}" method="POST">
+      @csrf
+      <div class="modal-body">  
+        <div class="form-group">
+            <input type="text" class="form-control" name="nama_pejabat" placeholder="Nama Lengkap">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="nip" placeholder="NIP">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="jabatan" placeholder="Jabatan">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div> 
 @endsection
