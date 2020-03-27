@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Pejabat;
 
+
 class AdminController extends Controller
 {
     // -------------------- Role --------------------
@@ -48,6 +49,12 @@ class AdminController extends Controller
 
     public function storePejabat(Request $request)
     {
+        $this->validate($request,[
+            'nama_pejabat' => 'required',
+            'nip' => 'required|min:18',
+            'jabatan' => 'required',
+        ]);
+
         $pejabat = new Pejabat;
         $pejabat->nama_pejabat = $request->input('nama_pejabat');
         $pejabat->nip = $request->input('nip');

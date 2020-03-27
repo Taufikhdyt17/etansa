@@ -22,13 +22,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //surat
 Route::group(["prefix"=>"surat/"], function(){
-Route::get('task', 'SuratController@task');
+Route::get('task', 'SuratController@task')->name('surat.task');
 Route::post('storetask', 'SuratController@storeTask');
-Route::get('archive', 'SuratController@archive');
+Route::get('send/{id}', 'SuratController@penerima');
+Route::put('sendpenerima/{id}', 'SuratController@storePenerima');
+Route::get('archive', 'SuratController@taskArchive');
 });
 
 Route::group(["prefix"=>"user/"], function(){
-Route::get('information', 'SuratController@information');
+Route::get('information', 'SuratController@information')->name('user.information');
+Route::get('editinformation', 'SuratController@editInformation');
+Route::put('updateinformation/{id}', 'SuratController@updateInformation');
 });
 
 Route::group(["prefix"=>"admin/"], function(){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\user;
 use App\surat;
 use App\opd;
 Use Storage;
@@ -19,12 +20,51 @@ class SuratController extends Controller
      */
     public function information()
     {
-        return view('user.information');
+        $allsurat = surat::all()->count();
+        $archive = surat::where('status_surat', 1)->count();
+        return view('user.information',['allsurat' => $allsurat],['archive' => $archive]);
+    }
+
+    public function editInformation()
+    {
+        return view('user.editinformation');
+    }
+
+    public function updateInformation(Request $request, $id)
+    {
+        //----------- Upload Gambar -----------
+        $nem = Auth::user()->username;
+        $ext = $request->file('image')->getClientOriginalExtension();
+        $name = $nem.'.'.$ext;
+        if (Storage::exists('public/avatars', $name)) {
+           Storage::delete('public/avatars', $name);
+           $image = $request->file('image')->storeAs('public/avatars', $name);
+        }
+        else{
+            $image = $request->file('image')->storeAs('public/avatars', $name);
+        }
+
+        $user = user::find($id);
+        $user->username = $request->input('username');
+        $user->nip = $request->input('nip');
+        $user->email = $request->input('email');
+        $user->image = $name;
+
+        $user->save();
+
+        return redirect()->route('user.information');
     }
 
     public function task()
     {
-        return view('surat.task');
+        $surat = surat::where('status_surat', 0)->get();
+        return view('surat.task',compact('surat'));
+    }
+
+    public function taskArchive()
+    {
+        $surat = surat::where('status_surat', 1)->get();
+        return view('surat.archive',compact('surat'));
     }
 
     public function storeTask(Request $request)
@@ -76,6 +116,22 @@ class SuratController extends Controller
 
         return redirect()->route('surat.task');
 
+    }
+
+    public function Penerima($id){
+        $user = user::all();
+        $surat = surat::find($id);
+        return view('surat.sendtask',compact('user','surat'));
+    }
+
+    public function storePenerima(Request $request, $id){
+        $surat = surat::find($id);
+        $surat->status_surat = '1';
+        $surat->save();
+
+        $users=$request->penerima;
+        $surat->user()->sync($users);
+        return redirect()->route('surat.task');
     }
 
     /**

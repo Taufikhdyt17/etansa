@@ -4,6 +4,7 @@
     @include('sbadmin::layouts.partials.htmlheader')
 @show
 <body id="page-top">
+@include('sweet::alert')
 	<div id="wrapper">
 
     @include('sbadmin::layouts.partials.sidebar')

@@ -25,8 +25,8 @@
     </div>
 
     <div class="card-body border-bottom-primary">
-        <div class="col-lg-12">
-            <table class="table table-striped table-bordered datatable" width="100%" cellspacing="0">
+        <div class="col-lg-12 table-responsive">
+            <table class="table table-striped table-bordered datatable" id="task" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -34,17 +34,23 @@
                         <th scope="col">Pengirim</th>
                         <th scope="col">Tanggal Surat</th>
                         <th scope="col">Tanggal Masuk Sanapati</th>
+                        <th scope="col">Kirim</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                @php 
+                $no = 1;
+                @endphp
+                @forelse($surat as $data)
                     	<tr>
-                        	<th scope="row" style="text-align: center;">1</th>
-                        	<td>no surat</td>
-                        	<td>pengirim</td>
-                        	<td>tanggal surat</td>
-                        	<td>tanggal sanapati, 
-                                jam</td>
+                        	<th scope="row" style="text-align: center;">{{$no++}}</th>
+                        	<td>{{$data->no_surat}}</td>
+                        	<td>{{$data->pengirim}}</td>
+                        	<td>{{$data->tgl_surat}}</td>
+                        	<td>{{$data->tgl_kirim}}, 
+                          {{$data->jam}}</td>
+                          <td><a href="{{url('surat/send/'.$data->id)}}" class="badge badge-pill badge-primary"><i class="fas fa-paper-plane"></i> Kirim</a></td>
                         	<td>
                             	<a href="#" class="badge badge-pill badge-warning">Details</a>
                                 
@@ -52,6 +58,11 @@
                                 <a href="#" class="badge badge-pill badge-danger" onclick="return confirm('Yakin ?');">Delete</a>
                         	</td>
                     	</tr>
+                      @empty
+                      <tr>
+                        <td colspan="7" align="center">Data Tidak Ada</td>
+                      </tr>
+                  @endforelse
                 </tbody>
             </table>
         </div>
@@ -102,4 +113,10 @@
   </div>
 </div> 
 @endsection
-
+@section('custom_scripts')
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#task').DataTable();
+} );
+</script>
+@endsection

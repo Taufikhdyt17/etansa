@@ -15,9 +15,8 @@
         </div>
     </div>
     <div class="card-body border-bottom-primary">
-        <div class="col-lg-12">
-        	
-            <table class="table table-striped table-bordered datatable" width="100%" cellspacing="0">
+        <div class="col-lg-12 table-responsive">      	
+            <table class="table table-bordered table-striped" id="manage-user" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col" style="text-align: center;">No.</th>
@@ -57,4 +56,11 @@
     </div>
 </div>
 </div>
+@endsection
+@section('custom_scripts')
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#manage-user').DataTable();
+} );
+</script>
 @endsection

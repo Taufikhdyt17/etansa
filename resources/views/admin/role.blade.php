@@ -5,6 +5,11 @@
 @endsection
 
 @section('main-content')
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+@endif
 <div class="container-fluid">
   <div class="card">
     <div class="card-header">
@@ -19,8 +24,8 @@
     </div>
 
     <div class="card-body border-bottom-primary">
-        <div class="col-lg-12">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <div class="col-lg-12 table-responsive">
+            <table class="table table-bordered table-striped" id="role" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th scope="col" style="text-align: center;">No</th>
@@ -85,4 +90,11 @@
     </div>
   </div>
 </div> 
+@endsection
+@section('custom_scripts')
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#role').DataTable();
+} );
+</script>
 @endsection

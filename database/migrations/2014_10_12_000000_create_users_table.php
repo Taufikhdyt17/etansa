@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('nip');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('image');
             $table->bigInteger('opd_id')->unsigned()->unique();
             $table->rememberToken();
             $table->timestamps();
